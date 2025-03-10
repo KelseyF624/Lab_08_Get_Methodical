@@ -1,86 +1,108 @@
 import java.util.Scanner;
+
 public class SafeInput {
     
-    public static String getNonZeroLenString (Scanner pipe, String prompt) {
+public static String getNonZeroLenString (Scanner pipe, String prompt) {
         String retString = "";
         do {
             System.out.print("\n" + prompt + ": ");
             retString = pipe.nextLine();
         }while (retString.equals(""));
         return retString;}
-    
+
 public static int getInt (Scanner pipe, String prompt) {
-    boolean validInt = true;
+    boolean done = false;
     int retInt = 0;
+    String trash = "";
     do {
         System.out.print("\n" + prompt + ": ");
         if (pipe.hasNextInt()) {
             retInt = pipe.nextInt();
-            validInt = true;
-        } else {
             pipe.nextLine();
-            validInt = false;}
-    }while (validInt);
-    pipe.nextLine();
-    return retInt;
+            done = true;
+        } else {
+            trash = pipe.nextLine();
+            System.out.println("Invalid entry. Enter an integer, not " + trash);}
+    }while (!done);
+    return retInt;}
 
-    public static double getdouble (Scanner pipe, String prompt) {
+public static double getDouble(Scanner pipe, String prompt) {
         boolean validDouble = false;
         double retDouble = 0;
+        String trash = "";
         do {
             System.out.print("\n" + prompt + ": ");
             if (pipe.hasNextDouble()) {
                 retDouble = pipe.nextDouble();
                 validDouble = true;
             } else {
-                pipe.nextLine();
-                System.out.print("Your input is not a double.");
+                trash = pipe.nextLine();
+                System.out.print("Invalid entry. Enter a double, not " + trash);
             }
         }while (validDouble);
         pipe.nextLine();
         return retDouble;}
     
-    public static int getRangedInt (Scanner pipe, String prompt, int lo;
-    int hi;
-    prompt, hi, lo) {
-        boolean inRange = false;
-        retInt = 0;
+public static int getRangedInt (Scanner pipe, String prompt, int lo, int hi) {
+        boolean done = false;
+        int retInt = 0;
+        String trash = "";
         do {
-            retInt = getInt(pipe, prompt);
-            if retInt >= lo && retInt <= hi) {
-                inRange = true;}
-            else {System.out.println("Your input is not a range.");}
-        }while (!inRange);
-        pipe.nextLine();
+            System.out.print("[" + lo + "," + hi + "]: ");
+            if (pipe.hasNextInt()) {
+                retInt = pipe.nextInt();
+                pipe.nextLine();}
+            if (retInt >= lo && retInt <= hi) {
+                done = true;}
+            else {System.out.println("Invalid input. Enter an integer between " + lo + " and " + hi);}
+        }while (!done);
         return retInt;}
-    
-    public static String getYNConfirm (Scanner pipe, String prompt){
-        boolean validString = false;
-        String retString = "";
-        do {
-            retString = DevTest.getNonZeroLenString(pipe, prompt);
-            validString = true;
-        }
-    else{
-            System.out.println("Your input is not a string.");
-        }
-    } while (!validString);
+public static double getRangedDouble (Scanner pipe, String prompt, double lo, double hi) {
+    boolean done = false;
+    double retDouble = 0;
+    String trash = "";
+    do {
+        System.out.print("[" + lo + "," + hi + "]: ");
         pipe.nextLine();
-        return retString;}
+        if (retDouble >= lo && retDouble <= hi) {
+            done = true;}
+        else {System.out.println("Your input is not a range. \n Double must be between " + lo + hi + ".");}
+        else {trash = pipe.nextLine();
+              System.out.print("Invaid value: " + trash);
+    }while (!done);
+        return retDouble;
     
-public static String getRegExString (Scanner pipe, String prompt) {
-        String value ="";
-        boolean gotAValue = false;
+public static String getYNConfirm (Scanner pipe, String prompt){
+        boolean done = false;
+        String input = "";
+        boolean retValue = false;
         do {
-            System.out.print("\n" + prompt + ": ");
-            value = pipe.nextLine();
-            if (value.matches(getRegExString))
-            {gotAValue = true;}
+            System.out.print(prompt + "[YyNn]:  ");
+            input = pipe.nextLine();
+            if (input.isEmpty()) {
+            System.out.println("You must enter Y or N");}
+            else if (input.equals("Y")) {
+            retValue = true;
+            done = true;}
+            else if (input.equals("N")) {
+                retValue = false;
+                done = true;}
             else {
-                gotAValue = false;
-            }
-        } while (!gotAValue);
-        pipe.nextLine();
-        return value;}
+                System.out.println("Invalid input. Enter Y or N. Not " + input);}
+        } while (!done);
+        return retValue;
+
+public static String getRegExString (Scanner pipe, String prompt) {
+        boolean done = false;
+        String retValue ="";
+        do {
+            System.out.print(prompt + retValue + ": ");
+            retValue = pipe.nextLine();
+            if (retValue.matches(getRegExString))
+            {done = true;}
+            else {
+                done = false;}
+        } while (!done);
+        return retValue;}
     }
 }
