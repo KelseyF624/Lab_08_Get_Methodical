@@ -1,14 +1,14 @@
 import java.util.Scanner;
 public class SafeInput {
+    
     public static String getNonZeroLenString (Scanner pipe, String prompt) {
         String retString = "";
         do {
             System.out.print("\n" + prompt + ": ");
             retString = pipe.nextLine();
         }while (retString.equals(""));
-        return retString;
-    }
-}
+        return retString;}
+    
 public static int getInt (Scanner pipe, String prompt) {
     boolean validInt = true;
     int retInt = 0;
@@ -19,11 +19,11 @@ public static int getInt (Scanner pipe, String prompt) {
             validInt = true;
         } else {
             pipe.nextLine();
-            validInt = false;
-        }
+            validInt = false;}
     }while (validInt);
     pipe.nextLine();
     return retInt;
+    
     public static double getdouble (Scanner pipe, String prompt) {
         boolean validDouble = false;
         double retDouble = 0;
@@ -39,28 +39,35 @@ public static int getInt (Scanner pipe, String prompt) {
         }while (validDouble);
         pipe.nextLine();
         return retDouble;}
-    public static int getRangedInt (Scanner pipe, String prompt) {
+    
+    public static int getRangedInt (Scanner pipe, String prompt, int lo;
+    int hi;
+    prompt, hi, lo) {
         boolean inRange = false;
-        int retInt = 0;
+        retInt = 0;
         do {
             retInt = getInt(pipe, prompt);
-            if retInt >= low && retInt <= high) {
+            if retInt >= lo && retInt <= hi) {
                 inRange = true;}
             else {System.out.println("Your input is not a range.");}
         }while (!inRange);
         pipe.nextLine();
         return retInt;}
-    public static String getYNConfirm (Scanner pipe, String prompt) {
+    
+    public static String getYNConfirm (Scanner pipe, String prompt){
         boolean validString = false;
         String retString = "";
         do {
-            retString = DevTest.getNonZeroLenString (pipe, prompt);
-            validString = true;}
-    else {
-            System.out.println("Your input is not a string.");}
-        while (!validString);
+            retString = DevTest.getNonZeroLenString(pipe, prompt);
+            validString = true;
+        }
+    else{
+            System.out.println("Your input is not a string.");
+        }
+    } while (!validString);
         pipe.nextLine();
         return retString;}
+    
 public static String getRegExString (Scanner pipe, String prompt) {
         String value ="";
         boolean gotAValue = false;
@@ -74,6 +81,6 @@ public static String getRegExString (Scanner pipe, String prompt) {
             }
         } while (!gotAValue);
         pipe.nextLine();
-        return value;
-        }
+        return value;}
     }
+}
