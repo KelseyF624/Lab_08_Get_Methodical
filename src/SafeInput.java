@@ -1,13 +1,13 @@
 import java.util.Scanner;
-public class DevTest {
+public class SafeInput {
     public static String getNonZeroLenString (Scanner pipe, String prompt) {
-    String retString = "";
-    do {
-    System.out.print("\n" + prompt + ": ");
-    retString = pipe.nextLine();
-}while (retString.equals(""));
-return retString;
-}
+        String retString = "";
+        do {
+            System.out.print("\n" + prompt + ": ");
+            retString = pipe.nextLine();
+        }while (retString.equals(""));
+        return retString;
+    }
 }
 public static int getInt (Scanner pipe, String prompt) {
     boolean validInt = true;
@@ -24,7 +24,6 @@ public static int getInt (Scanner pipe, String prompt) {
     }while (validInt);
     pipe.nextLine();
     return retInt;
-
     public static double getdouble (Scanner pipe, String prompt) {
         boolean validDouble = false;
         double retDouble = 0;
@@ -61,6 +60,20 @@ public static int getInt (Scanner pipe, String prompt) {
             System.out.println("Your input is not a string.");}
         while (!validString);
         pipe.nextLine();
-        return retString;
-
+        return retString;}
+public static String getRegExString (Scanner pipe, String prompt) {
+        String value ="";
+        boolean gotAValue = false;
+        do {
+            System.out.print("\n" + prompt + ": ");
+            value = pipe.nextLine();
+            if (value.matches(getRegExString))
+            {gotAValue = true;}
+            else {
+                gotAValue = false;
+            }
+        } while (!gotAValue);
+        pipe.nextLine();
+        return value;
+        }
     }
