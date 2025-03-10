@@ -23,7 +23,7 @@ public static int getInt (Scanner pipe, String prompt) {
     }while (validInt);
     pipe.nextLine();
     return retInt;
-    
+
     public static double getdouble (Scanner pipe, String prompt) {
         boolean validDouble = false;
         double retDouble = 0;
