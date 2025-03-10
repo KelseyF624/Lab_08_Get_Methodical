@@ -13,7 +13,9 @@ public class CtoFTableDisplay {
         celciusTemp = celciusStart;
         System.out.println("Celcius \t\tFahrenheit");
         for (int i = 1; i <= rangeCelcius +1; i++) {
-            fahrenheitTemp
+            fahrenheitTemp = celciusTemp * 1.8 + 32;
+            celciusTemp ++;
+            System.out.printf ("%7.2f \t\t%6.2f\n", fahrenheitTemp, celciusTemp);
         };
     }
 }
