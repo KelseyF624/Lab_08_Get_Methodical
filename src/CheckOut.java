@@ -7,7 +7,7 @@ public class CheckOut {
         int itemCount = 0;
         boolean done = false;
         do {
-            itemPrice = SafeInput.getRangedDouble(input,"Enter the item price.",.50,10.00);
+            itemPrice = SafeInput.getRangedDouble(input,"Enter the item price.",.5,10);
             totalPrice += itemPrice;
             itemCount++;
             done = SafeInput.getYNConfirm(input, "Are you done? (y/n)");
