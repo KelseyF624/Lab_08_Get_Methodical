@@ -9,8 +9,8 @@ public class BirthDateTime {
         int day = 0;
         int month = 0;
         int year = 0;
-        year = SafeInput.getRangedInt (input, "Enter your birth year.");
-        month = SafeInput.getRangedInt (input, "Enter your birth month.");
+        year = SafeInput.getRangedInt (input, "Enter your birth year.", 1950, 2025);
+        month = SafeInput.getRangedInt (input, "Enter your birth month.", 1, 12);
         switch (month){
             case 1:
             case 3:
