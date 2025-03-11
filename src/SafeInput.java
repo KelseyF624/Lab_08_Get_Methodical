@@ -66,43 +66,42 @@ public static double getRangedDouble (Scanner pipe, String prompt, double lo, do
         pipe.nextLine();
         if (retDouble >= lo && retDouble <= hi) {
             done = true;}
-        else {System.out.println("Your input is not a range. \n Double must be between " + lo + hi + ".");}
-        else {trash = pipe.nextLine();
-              System.out.print("Invaid value: " + trash);
-    }while (!done);
-        return retDouble;
-    
-public static String getYNConfirm (Scanner pipe, String prompt){
-        boolean done = false;
-        String input = "";
-        boolean retValue = false;
-        do {
-            System.out.print(prompt + "[YyNn]:  ");
-            input = pipe.nextLine();
-            if (input.isEmpty()) {
-            System.out.println("You must enter Y or N");}
-            else if (input.equals("Y")) {
+        else {
+            System.out.println("Your input is not a range. \n Double must be between " + lo + hi + ".");}
+        else {
+            trash = pipe.nextLine();
+            System.out.print("Invaid value: " + trash);}
+    }while (!done) ;
+    return retDouble;}
+public static boolean getYNConfirm (Scanner pipe, String prompt) {
+    boolean retValue = false;
+    String input = "";
+    boolean done = false;
+    do {
+        System.out.print(prompt + "[YyNn]");
+        input = pipe.nextLine();
+        if (input.isEmpty()) {
+            System.out.println("You must enter Y or N.");}
+        else if (input.equals("Y")) {
             retValue = true;
             done = true;}
-            else if (input.equals("N")) {
-                retValue = false;
-                done = true;}
-            else {
-                System.out.println("Invalid input. Enter Y or N. Not " + input);}
-        } while (!done);
-        return retValue;
-
-public static String getRegExString (Scanner pipe, String prompt) {
-        boolean done = false;
-        String retValue ="";
-        do {
-            System.out.print(prompt + retValue + ": ");
-            retValue = pipe.nextLine();
-            if (retValue.matches(getRegExString))
-            {done = true;}
-            else {
-                done = false;}
-        } while (!done);
-        return retValue;}
+        else if (input.equals("N")) {
+            retValue = false;
+            done = true;}
+        else {
+            System.out.println("Invalid input. Enter Y or N. Not " + input);}
+} while (!done);
+    return retValue;}
+public static String getRegExString (Scanner pipe, String prompt, String regEx) {
+    boolean done = false;
+    String retValue = "";
+    do {
+        System.out.print(prompt + regEx + ": ");
+        retValue = pipe.nextLine();
+        if (retValue.matches(regEx)) {
+            done = true;}
+        else {System.out.println("Invalid input. value that matches the pattern " + regEx + "not "+ retValue);}
+    }while (!done);
+    return retValue;
     }
 }

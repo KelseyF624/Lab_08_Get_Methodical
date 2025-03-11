@@ -8,7 +8,7 @@ public class CheckOut {
         do {
             itemPrice = SafeInput.getRangedInt(input, "Enter the item price.", .50,10.00);
             totalPrice += itemPrice;
-            moreItems = SafeInput.getYNConfirm (input, "Do you have anymore items? (y/n)");
+            moreItems = SafeInput.getYNConfirm(input, "Do you have anymore items? (y/n)");
         }while (moreItems);
         System.out.print("The total price is $ %.2f.", totalPrice);
     }
