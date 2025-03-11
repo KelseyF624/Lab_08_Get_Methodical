@@ -39,7 +39,7 @@ public static double getDouble(Scanner pipe, String prompt) {
                 trash = pipe.nextLine();
                 System.out.print("Invalid entry. Enter a double, not " + trash);
             }
-        }while (validDouble);
+        }while (!validDouble);
         pipe.nextLine();
         return retDouble;}
     
@@ -64,10 +64,10 @@ public static double getRangedDouble (Scanner pipe, String prompt, double lo, do
     do {
         System.out.print(prompt + "[" + lo + "," + hi + "]: ");
         pipe.nextLine();
-        if (retDouble >= lo && retDouble <= hi) {
+        if (retDouble >= lo || retDouble <= hi) {
             done = true;}
         else {
-            System.out.println("Your input is not a range. \n Double must be between  " + lo + " " + hi + ".");}
+            System.out.println("Your input is not a range. Double must be between  " + lo + " " + hi + ".");}
     }while (!done) ;
     return retDouble;}
 public static boolean getYNConfirm (Scanner pipe, String prompt) {
