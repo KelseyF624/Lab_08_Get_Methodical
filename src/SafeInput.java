@@ -63,7 +63,7 @@ public static double getRangedDouble (Scanner pipe, String prompt, double lo, do
     String trash = "";
     do {
         System.out.print(prompt + "[" + lo + "," + hi + "]: ");
-        pipe.nextLine();
+        retDouble = pipe.nextDouble();
         if (retDouble >= lo || retDouble <= hi) {
             done = true;}
         else {
@@ -75,7 +75,7 @@ public static boolean getYNConfirm (Scanner pipe, String prompt) {
     String input = "";
     boolean done = false;
     do {
-        System.out.print(prompt + "[YyNn]");
+        System.out.print(prompt);
         input = pipe.nextLine();
         if (input.isEmpty()) {
             System.out.println("You must enter Y or N.");}
