@@ -34,12 +34,6 @@ public class BirthDateTime {
         hour = SafeInput.getRangedInt(input, "Enter your birth hour.", 1, 24);
         minute = SafeInput.getRangedInt(input, "Enter your birth minute.", 0, 59);
         System.out.println ("Your date of birth is: " + month + day + year + hour + minute + ".");
-
-
-
-
-
-
     }
 }
 

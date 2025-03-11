@@ -4,19 +4,26 @@ public class PrettyHeader {
         Scanner input = new Scanner(System.in);
         String message = SafeInput.getNonZeroLenString(input, "Enter a message to display.");
         prettyHeader(message);}
-    public static void prettyHeader(String message) {
-        int spaces = 54 - message.length();
-        int space1 = spaces / 2;
+    public static void prettyHeader(String msg) {
+        int totalSpaces = 54 - msg.length();
+        int space1 = totalSpaces / 2;
         int space2 = space1;
-        if (spaces %2 == 1)
+        if (totalSpaces % 2 == 1)
             space2++;
-        for (int s = 1; s <= spaces; s++) {
+        for (int sp = 1; sp <= 60; sp++) {
             System.out.print("*");}
-        for (int sp = 1; sp <= spaces; sp++) {
+        System.out.println();
+        for (int s = 1 ; s <= 3; s++) {
             System.out.print(" ");}
-        for (int s = 1; s <= 3; s++) {
+        for (int sp = 1; sp <= space1; sp++) {
+            System.out.print(" ");}
+        System.out.print(msg);
+        for (int sp = 1; sp <= space2; sp++) {
+            System.out.print(" ");}
+        for (int s = 1 ; s <= 3; s++) {
             System.out.print("*");}
-        for (int s = 1; s <= 60; s++) {
+        System.out.println();
+        for (int s = 1; s <= 60; s++){
             System.out.print("*");}
     }
 }
