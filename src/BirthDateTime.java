@@ -33,7 +33,7 @@ public class BirthDateTime {
         day = SafeInput.getRangedInt(input, "Enter your birth day.", 1, highValue);
         hour = SafeInput.getRangedInt(input, "Enter your birth hour.", 1, 24);
         minute = SafeInput.getRangedInt(input, "Enter your birth minute.", 0, 59);
-        System.out.println ("Your date of birth is: " + month + day + year + hour + minute + ".");
+        System.out.println ("Your date of birth is: " + month + " " + day + " " + year + " " + "You were born at " + hour + " " + minute + ".");
     }
 }
 

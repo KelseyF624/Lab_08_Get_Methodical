@@ -15,7 +15,7 @@ public static int getInt (Scanner pipe, String prompt) {
     int retInt = 0;
     String trash = "";
     do {
-        System.out.print("\n" + prompt + ": ");
+        System.out.print(prompt + ": ");
         if (pipe.hasNextInt()) {
             retInt = pipe.nextInt();
             pipe.nextLine();
@@ -31,7 +31,7 @@ public static double getDouble(Scanner pipe, String prompt) {
         double retDouble = 0;
         String trash = "";
         do {
-            System.out.print("\n" + prompt + ": ");
+            System.out.print(prompt + ": ");
             if (pipe.hasNextDouble()) {
                 retDouble = pipe.nextDouble();
                 validDouble = true;
@@ -48,7 +48,7 @@ public static int getRangedInt (Scanner pipe, String prompt, int lo, int hi) {
         int retInt = 0;
         String trash = "";
         do {
-            System.out.print("[" + lo + "," + hi + "]: ");
+            System.out.print(prompt + "[" + lo + "," + hi + "]: ");
             if (pipe.hasNextInt()) {
                 retInt = pipe.nextInt();
                 pipe.nextLine();}
@@ -62,7 +62,7 @@ public static double getRangedDouble (Scanner pipe, String prompt, double lo, do
     double retDouble = 0;
     String trash = "";
     do {
-        System.out.print("[" + lo + "," + hi + "]: ");
+        System.out.print(prompt + "[" + lo + "," + hi + "]: ");
         pipe.nextLine();
         if (retDouble >= lo && retDouble <= hi) {
             done = true;}
